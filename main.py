@@ -121,5 +121,5 @@ for idx, linha in enumerate(dados.values):
         else:
             st.info(f"https://sitefelipe.streamlit.app/pagina_{compatibilidade}")
 
-teste = pd.read_excel('./venv/dados.xlsx')
+teste = pd.read_excel('venv/dados.xlsx')
 st.write(teste)
