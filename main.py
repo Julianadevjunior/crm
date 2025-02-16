@@ -103,7 +103,7 @@ for idx, linha in enumerate(dados.values):
             with col13:
                 st.markdown(f"<p>Nome: {nome}</p>", unsafe_allow_html=True)
             with col14:
-                st.markdown(f"<p>Telefone: {telefone}</p>", unsafe_allow_html=True)
+                st.markdown(f'<p>Telefone: <a href="https://wa.me/55{telefone}" target="_blank">{telefone}</a></p>', unsafe_allow_html=True)
 
             col15, col16, col17 = st.columns([2, 2, 6])
             with col15:
