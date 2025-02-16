@@ -2,6 +2,7 @@ import streamlit as st
 import defs
 from datetime import datetime
 import pandas as pd
+import def_tabela
 
 if 'novo' not in st.session_state:
     st.session_state['novo'] = []
@@ -121,7 +122,4 @@ for idx, linha in enumerate(dados.values):
         else:
             st.info(f"https://sitefelipe.streamlit.app/pagina_{compatibilidade}")
 
-caminho = st.secrets["files"]["dados_path"]
-
-teste = pd.read_excel(caminho)
-st.write(teste)
+st.write(def_tabela)
