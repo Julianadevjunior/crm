@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68142755-58ea-4dc2-b2c5-3b4cd498502d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.venv/def_tabela.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
