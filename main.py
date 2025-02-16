@@ -85,38 +85,39 @@ for idx, linha in enumerate(dados.values):
     quartos = dados.iloc[idx, 5]
     descricao = dados.iloc[idx, 6]
 
-    with st.container(border=True, key=f"box_{idx}"):
-        col9, col10, col11 = st.columns([4, 1.5, 1.2])
-        with col10:
-            with st.container(border=True, key=f"container_data_{idx}", height=47):
-                st.markdown(f"<p>{entrada}</p>", unsafe_allow_html=True)
-        with col11:
-            with st.expander(label="Opções"):
-                if st.button(label="fechar", key=f"fechar_{idx}"):
-                    dados = dados.drop(idx)
-                    dados.to_excel("dados.xlsx", index=False)
-                    st.rerun()
-        col12, col13, col14 = st.columns([1, 2, 2])
-        with col12:
-            st.markdown(f"<p>Código: {cod}</p>", unsafe_allow_html=True)
-        with col13:
-            st.markdown(f"<p>Nome: {nome}</p>", unsafe_allow_html=True)
-        with col14:
-            st.markdown(f"<p>Telefone: {telefone}</p>", unsafe_allow_html=True)
+    with st.expander(label=f"Nome: {nome} - Telefone: {telefone}"):
+        with st.container(border=True, key=f"box_{idx}"):
+            col9, col10, col11 = st.columns([4, 1.5, 1.2])
+            with col10:
+                with st.container(border=True, key=f"container_data_{idx}", height=47):
+                    st.markdown(f"<p>{entrada}</p>", unsafe_allow_html=True)
+            with col11:
+                with st.expander(label="Opções"):
+                    if st.button(label="fechar", key=f"fechar_{idx}"):
+                        dados = dados.drop(idx)
+                        dados.to_excel("dados.xlsx", index=False)
+                        st.rerun()
+            col12, col13, col14 = st.columns([1, 2, 2])
+            with col12:
+                st.markdown(f"<p>Código: {cod}</p>", unsafe_allow_html=True)
+            with col13:
+                st.markdown(f"<p>Nome: {nome}</p>", unsafe_allow_html=True)
+            with col14:
+                st.markdown(f"<p>Telefone: {telefone}</p>", unsafe_allow_html=True)
 
-        col15, col16, col17 = st.columns([2, 2, 6])
-        with col15:
-            st.markdown(f"<p>Quartos: {quartos}</p>", unsafe_allow_html=True)
-        with col16:
-            st.markdown(f"<p>Bairro: {bairro}</p>", unsafe_allow_html=True)
+            col15, col16, col17 = st.columns([2, 2, 6])
+            with col15:
+                st.markdown(f"<p>Quartos: {quartos}</p>", unsafe_allow_html=True)
+            with col16:
+                st.markdown(f"<p>Bairro: {bairro}</p>", unsafe_allow_html=True)
 
-        with st.container(border=True, key=f"descricao_{idx}"):
-            st.markdown(f"<p>Descrição:</p>", unsafe_allow_html=True)
-            st.markdown(f"<p>{descricao}</p>", unsafe_allow_html=True)
+            with st.container(border=True, key=f"descricao_{idx}"):
+                st.markdown(f"<p>Descrição:</p>", unsafe_allow_html=True)
+                st.markdown(f"<p>{descricao}</p>", unsafe_allow_html=True)
 
-        compatibilidade = comparacao(quartos, bairro)
-        print(compatibilidade)
-        if "Sem compatibilidade" in str(compatibilidade):
-            st.error(f"{compatibilidade}")
-        else:
-            st.info(f"https://sitefelipe.streamlit.app/pagina_{compatibilidade}")
+            compatibilidade = comparacao(quartos, bairro)
+            print(compatibilidade)
+            if "Sem compatibilidade" in str(compatibilidade):
+                st.error(f"{compatibilidade}")
+            else:
+                st.info(f"https://sitefelipe.streamlit.app/pagina_{compatibilidade}")
