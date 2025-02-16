@@ -92,7 +92,7 @@ for idx, linha in enumerate(dados.values):
                 with st.container(border=True, key=f"container_data_{idx}", height=47):
                     st.markdown(f"<p>{entrada}</p>", unsafe_allow_html=True)
             with col11:
-                with st.button(label="Opções", key=f"expander_{idx}"):
+                if st.button(label="Opções", key=f"expander_{idx}"):
                     if st.button(label="fechar", key=f"fechar_{idx}"):
                         dados = dados.drop(idx)
                         dados.to_excel("dados.xlsx", index=False)
